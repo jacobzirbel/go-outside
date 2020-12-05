@@ -19,6 +19,6 @@ print(response['main']['temp'])
 if True:
     GPIO.output(pin, True)
     time.sleep(1)
-    GPIO.output(pin, False)
+    #GPIO.output(pin, False)
 
 GPIO.cleanup()
