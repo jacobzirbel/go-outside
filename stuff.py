@@ -21,4 +21,4 @@ if True:
     time.sleep(1)
     #GPIO.output(pin, False)
 
-GPIO.cleanup()
+#GPIO.cleanup()
