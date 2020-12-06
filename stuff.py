@@ -2,7 +2,7 @@ import requests
 import RPi.GPIO as GPIO
 import time
 
-from shouldGoOutside import util
+from util import shouldGoOutside
 
 pin = 4
 GPIO.setmode(GPIO.BCM)
@@ -21,6 +21,10 @@ print(response['main']['temp'])
 temp = response['main']['temp']
 
 lightOn = shouldGoOutside(temp)
+if lightOn:
+    print("Turning light on")
+else:
+    print("Turning light off")
 GPIO.output(pin, lightOn)
 
 #GPIO.cleanup()
