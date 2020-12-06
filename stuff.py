@@ -2,6 +2,8 @@ import requests
 import RPi.GPIO as GPIO
 import time
 
+from shouldGoOutside import util
+
 pin = 4
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(pin, GPIO.OUT)
@@ -16,9 +18,9 @@ print(url)
 response = requests.get(url).json()
 print(response['weather'][0]['description'])
 print(response['main']['temp'])
-if True:
-    GPIO.output(pin, True)
-    time.sleep(1)
-    GPIO.output(pin, False)
+temp = response['main']['temp']
+
+lightOn = shouldGoOutside(temp)
+GPIO.output(pin, lightOn)
 
 #GPIO.cleanup()
