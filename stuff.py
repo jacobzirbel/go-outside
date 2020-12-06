@@ -1,6 +1,7 @@
 import requests
 import RPi.GPIO as GPIO
 import time
+from datetime import datetime
 
 from util import shouldGoOutside
 
@@ -14,11 +15,13 @@ lon = '-89.3815317'
 city = "madison"
 state = "WI"
 url = f'http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&units=imperial&appid={key}'
-print(url)
+
+print(datetime.today())
+
 response = requests.get(url).json()
 print(response['weather'][0]['description'])
-print(response['main']['temp'])
 temp = response['main']['temp']
+print("Temperature: " + temp)
 
 lightOn = shouldGoOutside(temp)
 if lightOn:
