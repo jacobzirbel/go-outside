@@ -1,5 +1,4 @@
 from datetime import datetime
-
 monthlyWeather = [
     ["January", 27, 8],
     ["February", 31, 11],
