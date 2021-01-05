@@ -20,8 +20,8 @@ print(datetime.today())
 
 response = requests.get(url).json()
 print(response['weather'][0]['description'])
-temp = response['main']['temp']
-print("Temperature: %s" % temp)
+temp = response['main']['feels_like']
+print("Feels like: %s" % temp)
 
 lightOn = shouldGoOutside(temp)
 if lightOn:
